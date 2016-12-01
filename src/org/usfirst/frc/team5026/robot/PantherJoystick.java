@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class PantherJoystick extends Joystick{
 	
-	
+	int joystickThrottleValue;
 	
 	public PantherJoystick(int port) {
 		super(port);
@@ -44,7 +44,7 @@ public class PantherJoystick extends Joystick{
 	}
 	
 	public throttleMode() {
-		
+		joystickThrottlevalue = this.getThrottle();
 	}
 	
 
