@@ -42,10 +42,10 @@ public class PantherJoystick extends Joystick{
 		}
 		return magnitude;
 	}
-	
+	/*
 	public throttleMode() {
 		joystickThrottlevalue = this.getThrottle();
 	}
-	
+	*/
 
 }
