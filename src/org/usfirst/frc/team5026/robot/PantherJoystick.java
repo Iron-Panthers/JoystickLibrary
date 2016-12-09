@@ -16,7 +16,7 @@ public class PantherJoystick extends Joystick{
 
 		double newX = 0;
 
-		newX = this.getScaledDeadzoneMagnitude(Constants.deadzone) * Math.cos(this.getDirectionDegrees());
+		newX = this.getScaledDeadzoneMagnitude(Constants.DEADZONE) * Math.cos(this.getDirectionDegrees());
 		return newX;
 	}
 	
@@ -24,7 +24,7 @@ public class PantherJoystick extends Joystick{
 		
 		double newY = 0;
 		
-		newY = this.getScaledDeadzoneMagnitude(Constants.deadzone) * Math.sin(this.getDirectionDegrees());
+		newY = this.getScaledDeadzoneMagnitude(Constants.DEADZONE) * Math.sin(this.getDirectionDegrees());
 		return newY;
 	}
 	

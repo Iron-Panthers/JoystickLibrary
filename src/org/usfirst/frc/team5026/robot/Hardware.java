@@ -1,6 +1,6 @@
 package org.usfirst.frc.team5026.robot;
 
-import org.usfirst.frc.team5026.lib.DriveMotorGroup;
+import org.usfirst.frc.team5026.robot.DriveMotorGroup;
 
 import edu.wpi.first.wpilibj.Talon;
 

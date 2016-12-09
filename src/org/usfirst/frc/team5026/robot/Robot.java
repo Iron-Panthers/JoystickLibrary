@@ -2,11 +2,14 @@
 package org.usfirst.frc.team5026.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 import org.usfirst.frc.team5026.robot.commands.ExampleCommand;
 import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -21,6 +24,10 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+	public static DriveMotorGroup leftMotorGroup;
+	public static DriveMotorGroup rightMotorGroup;
+	public static PantherJoystick driveStick;
+	
 
     Command autonomousCommand;
     SendableChooser chooser;
@@ -90,6 +97,10 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
+        leftMotorGroup = new DriveMotorGroup(new Talon(2), new Talon(3), new Talon(4), true);
+        rightMotorGroup = new DriveMotorGroup(new Talon(5), new Talon(6), new Talon(7), false);
+        driveStick = new PantherJoystick(0);
     }
 
     /**
@@ -97,6 +108,8 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        leftMotorGroup.set(driveStick.getScaledDeadzoneY());
+        rightMotorGroup.set(driveStick.getScaledDeadzoneY());
     }
     
     /**
