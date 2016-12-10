@@ -1,6 +1,6 @@
 package org.usfirst.frc.team5026.robot.commands;
 
-import org.usfirst.frc.team5026.lib.PantherJoystick;
+import org.usfirst.frc.team5026.robot.PantherJoystick;
 import org.usfirst.frc.team5026.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -25,7 +25,7 @@ public class ArcadeDriveWithJoystick extends Command {
     }
 
     protected void execute() {
-    	Robot.drive.useArcadeDrive(-joystick.getYAxis(), joystick.getXAxis());
+    	Robot.drive.useArcadeDrive(-joystick.getScaledDeadzoneY(), joystick.getScaledDeadzoneX());
 
     }
 

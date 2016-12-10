@@ -10,6 +10,7 @@ public class Hardware {
 	public DriveMotorGroup leftDrive;
 	public DriveMotorGroup rightDrive;
 	
+
 	public Hardware() {
 		driveStick = new PantherJoystick(Constants.JOYSTICK_PORT);
 		
@@ -17,3 +18,4 @@ public class Hardware {
 		rightDrive = new DriveMotorGroup(new Talon(Constants.RIGHT_DRIVE_MOTOR_1), new Talon(Constants.RIGHT_DRIVE_MOTOR_2), new Talon(Constants.RIGHT_DRIVE_MOTOR_3), true);
 	}
 }
+

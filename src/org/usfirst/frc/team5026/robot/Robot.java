@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team5026.robot.commands.ExampleCommand;
+import org.usfirst.frc.team5026.robot.subsystems.Drive;
 import org.usfirst.frc.team5026.robot.subsystems.ExampleSubsystem;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -27,6 +28,8 @@ public class Robot extends IterativeRobot {
 	public static DriveMotorGroup leftMotorGroup;
 	public static DriveMotorGroup rightMotorGroup;
 	public static PantherJoystick driveStick;
+	public static Hardware hardware;
+	public static Drive drive;
 	
 
     Command autonomousCommand;
