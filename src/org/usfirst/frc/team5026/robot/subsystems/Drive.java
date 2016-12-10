@@ -35,8 +35,8 @@ public class Drive extends Subsystem {
 		drive.arcadeDrive(joystick);
 	}
 	
-	public void useArcadeDrive(double xAxis, double yAxis) {
-		drive.arcadeDrive(xAxis, yAxis);
+	public void useArcadeDrive(double yAxis, double xAxis) {
+		drive.arcadeDrive(yAxis, xAxis);
 	}
     
 	public void setLeftRightMotors(double leftMotors, double rightMotors) {

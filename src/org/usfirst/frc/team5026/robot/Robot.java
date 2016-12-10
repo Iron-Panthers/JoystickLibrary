@@ -45,6 +45,12 @@ public class Robot extends IterativeRobot {
         chooser.addDefault("Default Auto", new ExampleCommand());
 //        chooser.addObject("My Auto", new MyAutoCommand());
         SmartDashboard.putData("Auto mode", chooser);
+        
+        leftMotorGroup = new DriveMotorGroup(new Talon(2), new Talon(3), new Talon(4), true);
+        rightMotorGroup = new DriveMotorGroup(new Talon(5), new Talon(6), new Talon(7), false);
+        driveStick = new PantherJoystick(1);
+        drive = new Drive();
+        
     }
 	
 	/**
@@ -101,9 +107,6 @@ public class Robot extends IterativeRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         
-        leftMotorGroup = new DriveMotorGroup(new Talon(2), new Talon(3), new Talon(4), true);
-        rightMotorGroup = new DriveMotorGroup(new Talon(5), new Talon(6), new Talon(7), false);
-        driveStick = new PantherJoystick(0);
     }
 
     /**
@@ -111,8 +114,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        leftMotorGroup.set(driveStick.getScaledDeadzoneY());
-        rightMotorGroup.set(driveStick.getScaledDeadzoneY());
+        drive.useArcadeDrive(driveStick.getScaledDeadzoneY(), driveStick.getScaledDeadzoneX());
     }
     
     /**
