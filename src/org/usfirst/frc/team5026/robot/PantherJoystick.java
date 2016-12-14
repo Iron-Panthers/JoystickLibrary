@@ -4,7 +4,9 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class PantherJoystick extends Joystick{
 	
-	int joystickThrottleValue;
+	double joystickThrottleValue;
+	
+	double throttleMultiplier;
 	
 	public PantherJoystick(int port) {
 		super(port);
@@ -17,7 +19,7 @@ public class PantherJoystick extends Joystick{
 		double newX = 0;
 
 		newX = this.getScaledDeadzoneMagnitude(Constants.DEADZONE) * Math.cos(this.getDirectionDegrees());
-		return newX;
+		return newX * throttleMultiplier;
 	}
 	
 	public double getScaledDeadzoneY() {
@@ -25,7 +27,7 @@ public class PantherJoystick extends Joystick{
 		double newY = 0;
 		
 		newY = this.getScaledDeadzoneMagnitude(Constants.DEADZONE) * Math.sin(this.getDirectionDegrees());
-		return newY;
+		return newY * throttleMultiplier;
 	}
 	
 	public double getScaledDeadzoneMagnitude(float deadzone) {
@@ -42,10 +44,17 @@ public class PantherJoystick extends Joystick{
 		}
 		return magnitude;
 	}
-	/*
-	public throttleMode() {
-		joystickThrottlevalue = this.getThrottle();
+	
+	public void throttleMode() {
+		joystickThrottleValue = this.getZ();
+		if(joystickThrottleValue < 0) {
+			throttleMultiplier = .5;
+			
+		}
+		if(joystickThrottleValue > 0) {
+			throttleMultiplier = 2.0;
+		}
 	}
-	*/
+	
 
 }

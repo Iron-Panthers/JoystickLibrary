@@ -14,8 +14,8 @@ public class Hardware {
 	public Hardware() {
 		driveStick = new PantherJoystick(Constants.JOYSTICK_PORT);
 		
-		leftDrive = new DriveMotorGroup(new Talon(Constants.LEFT_DRIVE_MOTOR_1), new Talon(Constants.LEFT_DRIVE_MOTOR_2), new Talon(Constants.LEFT_DRIVE_MOTOR_3), true);
-		rightDrive = new DriveMotorGroup(new Talon(Constants.RIGHT_DRIVE_MOTOR_1), new Talon(Constants.RIGHT_DRIVE_MOTOR_2), new Talon(Constants.RIGHT_DRIVE_MOTOR_3), true);
+		leftDrive = new DriveMotorGroup(new Talon(RobotMap.leftDriveMotor1), new Talon(RobotMap.leftDriveMotor2), new Talon(RobotMap.leftDriveMotor3), true);
+		rightDrive = new DriveMotorGroup(new Talon(RobotMap.rightDriveMotor1), new Talon(RobotMap.rightDriveMotor2), new Talon(RobotMap.rightDriveMotor3), true);
 	}
 }
 
